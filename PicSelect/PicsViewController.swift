@@ -12,7 +12,6 @@ class PicsViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBOutlet weak var imageView: UIImageView!
     
-    
     @IBOutlet weak var titleTextField: UITextField!
     
     var imagePickerPic = UIImagePickerController()
@@ -25,7 +24,6 @@ class PicsViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
 
-    
     @IBAction func cameraTapped(_ sender: Any) {
         
     }

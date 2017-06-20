@@ -10,9 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
     @IBOutlet weak var tableView: UITableView!
-    
     
     var pics: [MyPhotos] = []
     
