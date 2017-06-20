@@ -18,8 +18,6 @@ class PicsViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var imagePickerPic = UIImagePickerController()
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +35,7 @@ class PicsViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         imagePickerPic.sourceType = .photoLibrary
         present(imagePickerPic, animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = image
@@ -44,9 +43,13 @@ class PicsViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func addTapped(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let pic = MyPhotos(context:context)
+        pic.title = titleTextField.text
+        pic.image = UIImagePNGRepresentation(imageView.image!) as NSData?
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController!.popViewController(animated: true)
+
     }
-    
-    
-    
     
 }

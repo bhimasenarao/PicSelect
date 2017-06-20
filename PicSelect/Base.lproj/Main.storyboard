@@ -13,7 +13,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PicSelect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="MainViewController" customModule="PicSelect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,7 +21,19 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ujA-lc-fhQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ujA-lc-fhQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5as-wD-lGn"/>
+                            <constraint firstAttribute="trailing" secondItem="ujA-lc-fhQ" secondAttribute="trailing" id="E8r-RY-sI7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ujA-lc-fhQ" secondAttribute="bottom" id="UVu-E2-oKb"/>
+                            <constraint firstItem="ujA-lc-fhQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rPi-bD-h2j"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x0B-nO-uHx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xZY-Va-Gv9">
@@ -30,10 +42,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ujA-lc-fhQ" id="Uhn-DJ-edn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1430" y="175"/>
+            <point key="canvasLocation" x="-1540" y="175"/>
         </scene>
         <!--Pics View Controller-->
         <scene sceneID="BQ9-5V-Dle">
