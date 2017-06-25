@@ -10,7 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+
     @IBOutlet weak var tableView: UITableView!
+    
     
     var pics: [MyPhotos] = []
     
@@ -24,7 +26,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         do{
-            pics = try context.fetch(MyPhotos.fetchRequest())
+            pics = try context.fetch(MyPhotos.fetchRequest()) as! [MyPhotos]
             tableView.reloadData()
             
         }catch{
@@ -41,6 +43,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.textLabel?.text = pic.title
         cell.imageView?.image = UIImage(data: pic.image! as Data)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pic = pics[indexPath.row]
+        performSegue(withIdentifier: "toSelector", sender: pic)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! PicsViewController
+        nextVC.pic = sender as? MyPhotos
+        
     }
 }
 

@@ -38,7 +38,7 @@
                     <navigationItem key="navigationItem" id="x0B-nO-uHx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xZY-Va-Gv9">
                             <connections>
-                                <segue destination="Oby-tM-Uuv" kind="show" id="GFm-tR-LBk"/>
+                                <segue destination="Oby-tM-Uuv" kind="show" identifier="toSelector" id="GFm-tR-LBk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1540" y="175"/>
+            <point key="canvasLocation" x="-1673" y="175"/>
         </scene>
         <!--Pics View Controller-->
         <scene sceneID="BQ9-5V-Dle">
@@ -82,6 +82,13 @@
                                     <action selector="addTapped:" destination="Oby-tM-Uuv" eventType="touchUpInside" id="tFN-iD-sHf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shk-zq-5Of">
+                                <rect key="frame" x="165" y="374" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deletePressed:" destination="Oby-tM-Uuv" eventType="touchUpInside" id="J2j-Hn-gVQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -90,6 +97,8 @@
                             <constraint firstItem="d5g-sz-K6Y" firstAttribute="centerX" secondItem="Hl6-8i-b1J" secondAttribute="centerX" id="Egp-wO-8dK"/>
                             <constraint firstItem="wkM-Nu-pXo" firstAttribute="top" secondItem="d5g-sz-K6Y" secondAttribute="bottom" constant="25" id="FfD-k5-f13"/>
                             <constraint firstItem="48C-Ea-p5f" firstAttribute="centerX" secondItem="Hl6-8i-b1J" secondAttribute="centerX" id="Mzu-9q-iRk"/>
+                            <constraint firstItem="Shk-zq-5Of" firstAttribute="top" secondItem="48C-Ea-p5f" secondAttribute="bottom" constant="25" id="asB-E4-9HL"/>
+                            <constraint firstItem="Shk-zq-5Of" firstAttribute="centerX" secondItem="Hl6-8i-b1J" secondAttribute="centerX" id="nhu-3r-sv1"/>
                             <constraint firstItem="wkM-Nu-pXo" firstAttribute="width" secondItem="d5g-sz-K6Y" secondAttribute="width" id="pqS-dG-ibK"/>
                             <constraint firstItem="48C-Ea-p5f" firstAttribute="top" secondItem="wkM-Nu-pXo" secondAttribute="bottom" constant="25" id="xIf-k2-VJZ"/>
                         </constraints>
@@ -103,12 +112,14 @@
                             </barButtonItem>
                             <barButtonItem title="Photo Library" id="Vfl-5F-3sM">
                                 <connections>
-                                    <action selector="photoLibraryTapped:" destination="Oby-tM-Uuv" id="zha-gE-kj6"/>
+                                    <action selector="photosPressed:" destination="Oby-tM-Uuv" id="mLg-WY-AzY"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUpdateBtn" destination="48C-Ea-p5f" id="PC6-ad-baa"/>
+                        <outlet property="deleteBtn" destination="Shk-zq-5Of" id="QOU-r2-Bf9"/>
                         <outlet property="imageView" destination="d5g-sz-K6Y" id="fUa-Y5-F5o"/>
                         <outlet property="titleTextField" destination="wkM-Nu-pXo" id="ujB-Xe-iDy"/>
                     </connections>
@@ -133,7 +144,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D80-4s-1mR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2161" y="175"/>
+            <point key="canvasLocation" x="-2354" y="175"/>
         </scene>
     </scenes>
 </document>
